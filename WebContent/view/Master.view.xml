@@ -9,13 +9,14 @@
 				</contentLeft>
 			</Bar>
 		</subHeader>
-		<List 
-			items="{/SalesOrderCollection}"
-			id="list"
-			mode="{device>/listMode}"
+		<List items="{/SalesOrderCollection}" id="list" mode="{device>/listMode}"
 			select="handleListSelect">
-			<ObjectListItem type="Active" press="handleListItemPress"
-				title="{SoId}" number="{GrossAmount}" numberUnit="{CurrencyCode}">
+			<ObjectListItem 
+				type="Active" 
+				press="handleListItemPress"
+				title="{SoId}" 
+				number="{GrossAmount}" 
+				numberUnit="{CurrencyCode}">
 				<attributes>
 					<ObjectAttribute text="{BuyerName}" />
 				</attributes>
@@ -23,16 +24,23 @@
 					<ObjectStatus
 						text="{
 							path: 'LifecycleStatus',
-							formatter:
-							'sap.ui.demo.myFiori.util.Formatter.statusText'
+							formatter: 'sap.ui.demo.myFiori.util.Formatter.statusText'
 							}"
 						state="{
 							path: 'LifecycleStatus',
-							formatter:
-							'sap.ui.demo.myFiori.util.Formatter.statusState'
+							formatter:	'sap.ui.demo.myFiori.util.Formatter.statusState'
 							}" />
 				</firstStatus>
 			</ObjectListItem>
 		</List>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button
+						icon="sap-icon://group-2"
+						press="handleViewSettings" />
+				</contentRight>
+			</Bar>
+		</footer>
 	</Page>
 </core:View>

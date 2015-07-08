@@ -1,8 +1,8 @@
 jQuery.sap.declare("sap.ui.demo.myFiori.util.Formatter");
 jQuery.sap.require("sap.ui.core.format.DateFormat");
 
-sap.ui.demo.myFiori.util.Formatter = {	
-		
+sap.ui.demo.myFiori.util.Formatter = {
+
 	_statusStateMap : {
 		"P" : "Success",
 		"N" : "Warning"
@@ -25,6 +25,13 @@ sap.ui.demo.myFiori.util.Formatter = {
 			return oDateFormat.format(new Date(value));
 		} else {
 			return value;
+		}
+	},
+	quantity : function(value) {
+		try {
+			return (value) ? parseFloat(value).toFixed(0) : value;
+		} catch (err) {
+			return "Not-A-Number";
 		}
 	}
 };
